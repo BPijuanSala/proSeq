@@ -1,0 +1,12 @@
+Package: proSeq
+Title: Tools to preprocess RNA-seq data
+Version: 1.0
+Date: 2016-12-20
+Author: Blanca Pijuan Sala
+Maintainer: Blanca Pijuan Sala <bp382@cam.ac.uk>
+Description: Package that provides a set of tools to preprocess transcriptomic data.
+License: GPL-3
+Imports: grDevices, graphics, matrixStats, methods, scran, statmod, stats, zoo
+Depends: R(>= 3.4.0)
+RoxygenNote: 6.0.1
+LazyData: true
