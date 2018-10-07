@@ -12,11 +12,12 @@ runCellQC(object, annTable = geneTable, geneInput = "ID",
   outputPlots = "./", plotting = "pdf", passCol = "grey70",
   failCol = "red", thresCol = "blue", lty = 3, lwd = 2)
 
-\S4method{runCellQC}{RNAseq}(object, annTable = geneTable, geneInput = "ID",
-  GeneDetection = 2, minMapreads = 2e+05, maxMapmit = 0.1,
-  maxMapSpike = 0.5, minGenesExpr = 4000, checkCountsFeat = TRUE,
-  outputPlots = "./", plotting = "pdf", passCol = "grey70",
-  failCol = "red", thresCol = "blue", lty = 3, lwd = 2)
+\S4method{runCellQC}{RNAseq}(object, annTable = geneTable,
+  geneInput = "ID", GeneDetection = 2, minMapreads = 2e+05,
+  maxMapmit = 0.1, maxMapSpike = 0.5, minGenesExpr = 4000,
+  checkCountsFeat = TRUE, outputPlots = "./", plotting = "pdf",
+  passCol = "grey70", failCol = "red", thresCol = "blue", lty = 3,
+  lwd = 2)
 }
 \arguments{
 \item{object}{\code{RNAseq} object.}

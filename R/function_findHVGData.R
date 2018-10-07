@@ -1,5 +1,5 @@
 ########################################################################################
-## Title: methodRNAseq_findHVG.R
+## Title: methodRNAseq_findHVGData.R
 ## Author: Blanca Pijuan-Sala
 ## Description: Method to find highly variable genes. From Brennecke et al., 2013.
 ## Date: 30 June 2018
@@ -7,7 +7,7 @@
 ########################################################################################
 
 ##----------------------------------------
-## findHVG
+## findHVGData
 ##----------------------------------------
 
 #' @title Find highly variable genes
@@ -207,10 +207,7 @@ findHVGData <- function(data, signThres=0.1, outputPlots="./",plotting="pdf",
               # Add the technical noise fit, as before
               xg <- 10^seq( -2, 6, length.out=1000 )
               lines( xg, (xi+a1)/xg + a0, col="black", lwd=1 )
-              if (UseSpike==TRUE){
-                points( meansSpikes, cv2Spikes, pch=20, cex=.5, col="blue" )
-                
-              }
+             
                 
               
               dev.off()
@@ -226,10 +223,7 @@ findHVGData <- function(data, signThres=0.1, outputPlots="./",plotting="pdf",
               # Add the technical noise fit, as before
               xg <- 10^seq( -2, 6, length.out=1000 )
               lines( xg, (xi+a1)/xg + a0, col="black", lwd=1 )
-              if (UseSpike==TRUE){
-                points( meansSpikes, cv2Spikes, pch=20, cex=.5, col="blue" )
-                
-              }
+           
               
               dev.off()
             }
@@ -238,7 +232,7 @@ findHVGData <- function(data, signThres=0.1, outputPlots="./",plotting="pdf",
             return(rownames(nCountsVar))
             
            }
-         )
+         
 
 
 

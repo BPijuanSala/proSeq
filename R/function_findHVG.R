@@ -38,7 +38,7 @@
 #' slot within \code{RNAseq} object.
 #' @author Blanca Pijuan Sala.
 #' @export
-#' @rdname findHVGData
+#' @rdname findHVG
 #' @importFrom matrixStats rowVars
 #' @importFrom statmod glmgam.fit
 #' @importFrom graphics lines plot par 
@@ -233,7 +233,7 @@ findHVGData <- function(data, signThres=0.1, outputPlots="./",plotting="pdf",
             return(rownames(nCountsVar))
             
            }
-         )
+         
 
 
 
