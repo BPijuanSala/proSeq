@@ -129,7 +129,7 @@ To find highly variable genes, we can use the method described in Brennecke et a
 
 In both cases we need to specify what genes to use for it. For this, we discard genes based on their CV2 and mean expression. With this in mind, then you can specify the parameters for minimum mean (minQuantMeans), maximum mean (maxQuantMeans), minimum CV2 (minQuantCv2), maximum CV2 (maxQuantCv2)
 
-*findHVG method
+* findHVG method
 This can be applied directly to the object.
 
 ```{r}
@@ -138,7 +138,7 @@ length(hvg)
 genesHVG(data) = hvg
 ```
 
-*findHVGMatrix function
+* findHVGMatrix function
 This can be applied to a matrix without size factors. Here, the method will automatically calculate size factors, as in the "normalise" function. If there are no spike-ins (as I exemplify in this case below), the method will take the gene counts to fit the model.
 
 You may see that the fit is not as good as with spike-ins. In this case, I have to filter out more values with high CV2, as they bias the fit.

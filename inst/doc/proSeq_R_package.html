@@ -179,7 +179,9 @@ data &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">
 <h4>Brennecke et al., 2013</h4>
 <p>To find highly variable genes, we can use the method described in Brennecke et al., 2013. For this, we can use the method findHVG or the function findHVGMatrix</p>
 <p>In both cases we need to specify what genes to use for it. For this, we discard genes based on their CV2 and mean expression. With this in mind, then you can specify the parameters for minimum mean (minQuantMeans), maximum mean (maxQuantMeans), minimum CV2 (minQuantCv2), maximum CV2 (maxQuantCv2)</p>
-<p>*findHVG method This can be applied directly to the object.</p>
+<ul>
+<li>findHVG method This can be applied directly to the object.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hvg &lt;-<span class="st"> </span><span class="kw">findHVG</span>(<span class="dt">object=</span>data,<span class="dt">plotting=</span><span class="st">&quot;no&quot;</span>,<span class="dt">UseSpike =</span> <span class="ot">TRUE</span>, <span class="dt">minQuantMeans =</span> <span class="fl">0.1</span>,<span class="dt">maxQuantMeans =</span> <span class="fl">0.9</span>,<span class="dt">maxQuantCv2 =</span> <span class="fl">0.9</span>,<span class="dt">minQuantCv2 =</span> <span class="fl">0.1</span>)</code></pre></div>
 <pre><code>## Estimating technical noise...
 ## 
@@ -192,7 +194,9 @@ data &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(hvg)</code></pre></div>
 <pre><code>## [1] 3825</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">genesHVG</span>(data) =<span class="st"> </span>hvg</code></pre></div>
-<p>*findHVGMatrix function This can be applied to a matrix without size factors. Here, the method will automatically calculate size factors, as in the “normalise” function. If there are no spike-ins (as I exemplify in this case below), the method will take the gene counts to fit the model.</p>
+<ul>
+<li>findHVGMatrix function This can be applied to a matrix without size factors. Here, the method will automatically calculate size factors, as in the “normalise” function. If there are no spike-ins (as I exemplify in this case below), the method will take the gene counts to fit the model.</li>
+</ul>
 <p>You may see that the fit is not as good as with spike-ins. In this case, I have to filter out more values with high CV2, as they bias the fit.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hvg &lt;-<span class="st"> </span><span class="kw">findHVGMatrix</span>(<span class="kw">as.matrix</span>(<span class="kw">countsNorm</span>(data)),<span class="dt">UseSpike =</span> F,<span class="dt">plotting=</span><span class="st">&quot;no&quot;</span>, <span class="dt">minQuantMeans =</span> <span class="dv">0</span>,<span class="dt">maxQuantMeans =</span> <span class="dv">1</span>,<span class="dt">maxQuantCv2 =</span> <span class="fl">0.4</span>,<span class="dt">minQuantCv2 =</span> <span class="dv">0</span>)</code></pre></div>
 <pre><code>## Estimating technical noise with biological genes...
