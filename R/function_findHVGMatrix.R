@@ -90,10 +90,18 @@ findHVGMatrix <- function(mat, signThres=0.1, outputPlots="./",plotting="pdf",
             useForFit0 <- names(meansSpikes[intersect(validmeansSpikes,validCVSpikes)])
             useForFit <- names(meansSpikes) %in% useForFit0
             
-            sizeFacsSpikes <- scran::computeSumFactors(nSpikes)
-            names(sizeFacsSpikes) <- colnames(nSpikes)
             
-            sizeFacsCounts <- scran::computeSumFactors(nCounts)
+            if (ncol(nCounts)<101){
+              sizeFacsSpikes <- scran::computeSumFactors(nSpikes,sizes=seq((ncol(nSpikes)/5), ncol(nSpikes), 5))
+              sizeFacsCounts <- scran::computeSumFactors(nCounts,sizes=seq((ncol(nCounts)/5), ncol(nCounts), 5))
+              
+            } else {
+              sizeFacsSpikes <- scran::computeSumFactors(nSpikes)
+              sizeFacsCounts <- scran::computeSumFactors(nCounts)
+              
+            }
+            
+            names(sizeFacsSpikes) <- colnames(nSpikes)
             names(sizeFacsCounts) <- colnames(nCounts)            
             #useForFit <- meansSpikes >= minMeanForFit
             fit <- statmod::glmgam.fit( cbind( a0 = 1, a1tilde = 1/meansSpikes[useForFit] ), 

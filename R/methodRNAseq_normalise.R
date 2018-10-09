@@ -92,7 +92,13 @@ setMethod("normalise", "RNAseq",
             
 
             cat("Computing size factors...\n\n")
-            sizeFacs <- scran::computeSumFactors(counts[genes.SizF,])
+            if (ncol(counts)<101){
+              sizeFacs <- scran::computeSumFactors(counts[genes.SizF,],sizes=seq((ncol(counts)/5), ncol(counts), 5))
+              
+            } else {
+              sizeFacs <- scran::computeSumFactors(counts[genes.SizF,])
+              
+            }
             names(sizeFacs) <- colnames(counts)
           
             cat("Plotting size factors against library size (should be correlated) ...\n\n")

@@ -7,7 +7,9 @@ Maintainer: Blanca Pijuan Sala <bp382@cam.ac.uk>
 Description: Package that provides a set of tools to preprocess transcriptomic data.
 License: GPL-3
 Imports: grDevices, graphics, matrixStats, methods, scran, statmod, stats, zoo
+Suggests: knitr, Rtsne, destiny
 Depends: R(>= 3.4.0)
 RoxygenNote: 6.1.0
 LazyData: true
 Encoding: UTF-8
+VignetteBuilder: knitr
