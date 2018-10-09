@@ -122,7 +122,7 @@ CellsSizeFac(data) <- list(sizeFactorsGenes = NormOutput1$sizeFactorsGenes,
 ```
 
 
-###Identification of highly variable genes
+### Identification of highly variable genes
 
 #### Brennecke et al., 2013
 To find highly variable genes, we can use the method described in Brennecke et al., 2013. For this, we can use the method findHVG or the function findHVGMatrix
