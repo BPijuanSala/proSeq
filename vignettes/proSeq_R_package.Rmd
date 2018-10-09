@@ -25,17 +25,9 @@ For this tutorial, I will use a sample of a Smart-seq2 dataset I generated and t
 
 Note that here, in contrast to the paper, the gene counts have been generated using has been counted using GRCm38.81 for annotation and contain spike-ins.
 
-Let's check the respective files.
-
 For the metadata file we have three columns: PlateNumber, well and celltype.
 
-```{r}
-head(meta)
-```
-And the counts matrix is like this:
-```{r}
-countsMatrix[1:5,1:2]
-```
+
 ## Classes, methods and functions
 
 ### RNAseq class 
@@ -89,7 +81,6 @@ For our example, we will use: maxMapmit=0.12,minGenesExpr = 4000,minMapreads = 1
 
 The returning data is a TRUE/FALSE vector, where TRUE means that the cell has failed QC.
 
-In our case, the number of cells that failed the QC is 10.
 
 ```{r}
 
@@ -103,7 +94,7 @@ cellsFailQC(data)<-c(cellQC_data)
 
 For normalisation, we have two different approaches.
 
-####A. Size-factor normalisation
+#### A. Size-factor normalisation
 
 To apply normalisation, we will use the 'normalise' method. 
 you can also see that it outputs a plot. The plot is a sanity check, as you expect to see size factors correlated with library sizes.
@@ -113,7 +104,7 @@ NormOutput1 <- normalise(data)
 ```
 
 
-####B. Quantile normalisation
+#### B. Quantile normalisation
 This function normalises based on ranks. To apply it, we need the raw counts matrix.
 
 ```{r}
@@ -150,7 +141,7 @@ genesHVG(data) = hvg
 *findHVGMatrix function
 This can be applied to a matrix without size factors. Here, the method will automatically calculate size factors, as in the "normalise" function. If there are no spike-ins (as I exemplify in this case below), the method will take the gene counts to fit the model.
 
-You can immediately see that the fit is not as good and that I had to filter more values with high CV2, as they biased the fit.
+You may see that the fit is not as good as with spike-ins. In this case, I have to filter out more values with high CV2, as they bias the fit.
 
 ```{r}
 hvg <- findHVGMatrix(as.matrix(countsNorm(data)),UseSpike = F,plotting="no", minQuantMeans = 0,maxQuantMeans = 1,maxQuantCv2 = 0.4,minQuantCv2 = 0)
@@ -168,7 +159,3 @@ hvg <- findHVG.DM(countsNorm(data))
 ```
 
 I hope this was useful. If you have any issues, please report them to bps.queries@gmail.com
-
-```{r}
-sessionInfo()
-```
