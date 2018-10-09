@@ -19,14 +19,6 @@ Let's load the library then!
 library(proSeq)
 ```
 
-## The example dataset
-
-For this tutorial, I will use a sample of a Smart-seq2 dataset I generated and that will be in Pijuan-Sala et al., under review.
-
-Note that here, in contrast to the paper, the gene counts have been generated using has been counted using GRCm38.81 for annotation and contain spike-ins.
-
-For the metadata file we have three columns: PlateNumber, well and celltype.
-
 
 ## Classes, methods and functions
 
